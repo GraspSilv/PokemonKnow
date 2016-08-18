@@ -1,21 +1,20 @@
 var pokeApp = angular.module('pokeApp', []);
 
-pokeApp.controller('GuessController', ['$scope', function($scope) {
-    $scope.guess = "";
-    $scope.pokes = [
-        {
-            name: "pikachu",
-            id: 25
-        },
-        {
-            name: "charmander",
-            id:4
+pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, pokeknow) {
+    
+    pokeknow.success(function(data) {
+        $scope.guess = "";
+        $scope.pokes = [];
+        for (var x = 0; x < data.pokemon_entries.length; x++){
+            $scope.pokes.push(new Pokemon(data.pokemon_entries[x]));
         }
-    ];
+        $scope.quantity = 151;
+    });
+
     $scope.checkGuess = function(poke){
             //return angular.equals($scope.guess, poke.name);
-        if(angular.equals($scope.guess, poke.name)){
-            showImage(poke.id)
+        if(angular.equals($scope.guess, poke.poke_name)){
+            showImage(poke.id_no)
            }
     }}]);
 
