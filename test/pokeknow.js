@@ -1,5 +1,5 @@
 app.factory("pokeknow", ["$http", function($http) {
-  return $http.get("http://pokeapi.co/api/v1/pokedex")
+  return $http.get("http://pokeapi.co/api/v2/pokedex/kanto/")
     .success(function(data) {
       return data;
     })
