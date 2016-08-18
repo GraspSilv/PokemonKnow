@@ -1,3 +1,20 @@
+window.onload = function(){
+    setContainerWidth();
+};
+
+$(window).resize(function(){
+   setContainerWidth();
+});
+
+function setContainerWidth()
+{
+    $('#boxes').css('width', 'auto'); //reset
+    var windowWidth = $(document).width();
+    var blockWidth = $('.pimg').outerWidth(true);
+    var maxBoxPerRow = Math.floor(windowWidth / blockWidth);
+    $('#boxes').width(maxBoxPerRow * blockWidth);
+}
+
 var pokeApp = angular.module('pokeApp', []);
 
 pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, pokeknow) {
