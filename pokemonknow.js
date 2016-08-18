@@ -31,15 +31,17 @@ $(document).ready(function(){
      $("#boxes").append("<img src=\"transparent.png\" class=\"pimg\" width=\"50\" height=\"50\" />");  
 });
 
-
+var numGuessed = 0;
 function showImage(pokeNum) {
     var str = ":nth-child(" + pokeNum + ")";
+    if ($("#boxes > " + str).attr('src') == "transparent.png")
+        numGuessed++;
     $("#boxes > " + str).attr('src', "sprites/" + pokeNum + ".png");
 }
 
 // Countdown Timer
 
-var timeInMinutes = 2;
+var timeInMinutes = 1;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
@@ -68,6 +70,8 @@ var secondsSpan = clock.querySelector('.seconds');
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
       if(t.total<=0){
         clearInterval(timeinterval);
+        alert("Time's up! Your score: " + numGuessed);
+        document.getElementById('textbox').readOnly = true;
       }
     }
 
