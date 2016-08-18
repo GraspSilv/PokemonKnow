@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="pokemonKnow">
+<html>
 <head>
     <title>PokemonKnow</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="pokemonknow.js"></script>
     <link rel="stylesheet" href="pokemonknow.css">
 </head>
 <body>
-
+    <h2>Guess Box:</h2>
+    <div ng-app= "myApp" ng-controller="GuessController">
+        <input type="text" ng-model="guess"></input>
+        <h3>{{guess}}</h3>
+    </div>
+    <script src="guess.js"></script>
 </body>
 </html>
