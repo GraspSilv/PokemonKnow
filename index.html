@@ -14,7 +14,7 @@
     
     <center>
         <div ng-app= "pokeApp" ng-controller="GuessController">
-            <input type="text" ng-model="guess" size="50" placeholder="Start naming Pokemon..."></input>
+            <input type="text" id="textbox" ng-model="guess" size="50" placeholder="Start naming Pokemon..."></input>
         <div ng-repeat="poke in pokes">{{checkGuess(poke)}}</div>
         </div>
     </center>
