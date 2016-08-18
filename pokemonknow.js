@@ -17,8 +17,7 @@ pokeApp.controller('GuessController', ['$scope', function($scope) {
         if(angular.equals($scope.guess, poke.name)){
             showImage(poke.id)
            }
-    };
-}]);
+    }}]);
 
 $(document).ready(function(){
    for(var i = 0; i < 151; i++)
