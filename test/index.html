@@ -1,0 +1,39 @@
+<!-- index.html -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="css/main.css" rel="stylesheet" /> -->
+
+    <!-- Include the AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+  </head>
+  <body ng-app="PokemonKnowApp">
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <div class="row" ng-repeat="mon in pokemon">
+          <p> {{ mon }} </p>
+        </div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="app.js"></script>
+
+
+    <!-- Controllers -->
+    <script src="MainController.js"></script>
+
+    <!-- Services -->
+    <script src="pokeknow.js"></script>
+
+    <!-- Directives -->
+
+
+  </body>
+</html>
