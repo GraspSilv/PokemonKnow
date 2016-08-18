@@ -14,7 +14,7 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
     });
 
     $scope.checkGuess = function(poke){
-        if(angular.equals($scope.guess, poke.poke_name)){
+        if(angular.equals($scope.guess.toLowerCase(), poke.poke_name)){
             //nidoran f/m edge case
             if(poke.poke_name === "nidoran"){
                 showImage(29);
