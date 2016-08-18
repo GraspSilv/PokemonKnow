@@ -25,8 +25,9 @@ $(document).ready(function(){
 
 var numGuessed = 0;
 function showImage(pokeNum) {
-    numGuessed++;
     var str = ":nth-child(" + pokeNum + ")";
+    if ($("#boxes > " + str).attr('src') == "transparent.png")
+        numGuessed++;
     $("#boxes > " + str).attr('src', "sprites/" + pokeNum + ".png");
 }
 
