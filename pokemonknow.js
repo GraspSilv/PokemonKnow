@@ -15,6 +15,7 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
 
     $scope.checkGuess = function(poke){
         if(angular.equals($scope.guess.toLowerCase(), poke.poke_name)){
+
             //nidoran f/m edge case
             if(poke.poke_name === "nidoran"){
                 showImage(29);
@@ -22,7 +23,11 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
             }else{
                 showImage(poke.id_no);
             }
-            $scope.guess="";
+            if(!poke.visible){
+                $scope.guess="";
+            }
+            
+            poke.visible = true;
            }
     }}]);
 
@@ -42,7 +47,7 @@ function showImage(pokeNum) {
 
 // Countdown Timer
 
-var timeInMinutes = 1;
+var timeInMinutes = 2;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
