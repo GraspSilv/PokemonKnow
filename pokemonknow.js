@@ -2,6 +2,22 @@ var pokeApp = angular.module('pokeApp', []);
 
 pokeApp.controller('GuessController', ['$scope', function($scope) {
     $scope.guess = "";
+    $scope.pokes = [
+        {
+            name: "pikachu",
+            id: 25
+        },
+        {
+            name: "charmander",
+            id:4
+        }
+    ];
+    $scope.checkGuess = function(poke){
+            return angular.equals($scope.guess, poke.name);
+        /*if(angular.equals($scope.guess, poke.name){
+           
+           })*/
+    };
 }]);
 
 $(document).ready(function(){
