@@ -8,13 +8,21 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
         for (var x = 0; x < data.pokemon_entries.length; x++){
             $scope.pokes.push(new Pokemon(data.pokemon_entries[x]));
         }
+        //nidoran f/m edge case
+        $scope.pokes[29].poke_name="nidoran";
         $scope.quantity = 151;
     });
 
     $scope.checkGuess = function(poke){
-            //return angular.equals($scope.guess, poke.name);
         if(angular.equals($scope.guess, poke.poke_name)){
-            showImage(poke.id_no)
+            //nidoran f/m edge case
+            if(poke.poke_name === "nidoran"){
+                showImage(29);
+                showImage(32);
+            }else{
+                showImage(poke.id_no);
+            }
+            $scope.guess="";
            }
     }}]);
 
