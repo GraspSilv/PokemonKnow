@@ -47,7 +47,7 @@ function showImage(pokeNum) {
 
 // Countdown Timer
 
-var timeInMinutes = 1;
+var timeInMinutes = 2;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
