@@ -8,15 +8,15 @@
     <!-- <link href="css/main.css" rel="stylesheet" /> -->
 
     <!-- Include the AngularJS library -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+   <!--script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script-->
     <script src="node_modules/angular/angular.js"></script>
   </head>
   <body ng-app="PokemonKnowApp">
 
     <div class="main" ng-controller="MainController">
       <div class="container">
-        <div class="row" ng-repeat="mon in pokemon">
-          <p> {{ mon }} </p>
+        <div class="row" ng-repeat="mon in species.pokemon_entries | limitTo:quantity">
+          <p> {{ mon.entry_number | number }}: {{ mon.pokemon_species.name }} </p>
         </div>
         </ul>
       </div>
