@@ -39,9 +39,10 @@ $(document).ready(function(){
 var numGuessed = 0;
 function showImage(pokeNum) {
     var str = ":nth-child(" + pokeNum + ")";
-    if ($("#boxes > " + str).attr('src') == "transparent.png")
+    if ($("#boxes > " + str).attr('src') == "transparent.png") {
         numGuessed++;
-    $("#boxes > " + str).attr('src', "sprites/" + pokeNum + ".png");
+        $("#boxes > " + str).attr('src', "sprites/" + pokeNum + ".png");
+    }
 }
 
 // Countdown Timer
