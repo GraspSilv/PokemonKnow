@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="pokemonknow.css">
 </head>
 <body>
-    <h2>Guess Box:</h2>
-    <div ng-app= "myApp" ng-controller="GuessController">
+    <div ng-app="guessApp" ng-controller="GuessController">
+        <label>Guess Box:</label>
         <input type="text" ng-model="guess"></input>
+    <div ng-repeat="poke in pokes">{{checkGuess(poke.name)}}</div>
         <h3>{{guess}}</h3>
     </div>
     <script src="guess.js"></script>
