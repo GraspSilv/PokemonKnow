@@ -1,2 +1,2 @@
 # PokemonKnow
-It's a secret (for know)
+It's a secret (for now)
