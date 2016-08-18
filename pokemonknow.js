@@ -13,7 +13,7 @@ pokeApp.controller('GuessController', ['$scope', function($scope) {
         }
     ];
     $scope.checkGuess = function(poke){
-            return angular.equals($scope.guess, poke.name);
+            return angular.equals($scope.guess.toLowerCase().trim(), poke.name);
         /*if(angular.equals($scope.guess, poke.name){
            
            })*/
