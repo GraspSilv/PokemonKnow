@@ -93,8 +93,8 @@ var secondsSpan = clock.querySelector('.seconds');
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
       if(t.total<=0){
         clearInterval(timeinterval);
-        alert("Time's up! Your score: " + numGuessed);
         document.getElementById('textbox').readOnly = true;
+        document.getElementById("clockdiv").innerHTML = "Time's up! Your score: " + numGuessed;
       }
     }
 
