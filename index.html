@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="pokemonknow.css">
 </head>
 <body>
+    <!-- <button type="button" onclick="aud_play_pause()"></button> -->
     <h1>PokemonKnow</h1>
     
     <h2 id="clockdiv"><span class="minutes">2</span>:<span class="seconds">00</span></h2>
     
     <center>
         <div ng-app= "pokeApp" ng-controller="GuessController">
+
             <input type="text" id="textbox" ng-model="guess" size="50" placeholder="Start naming Pokemon . . ."></input>
+
         <div ng-repeat="poke in pokes">{{checkGuess(poke)}}</div>
         </div>
     </center>
@@ -30,5 +33,21 @@
     <script src="pokeknow.js"></script>
     <script src="pokemon.js"></script>
    
+<audio id="myAudio" autoplay="autoplay">
+ <source src="audio.mp3"
+         type='audio/mp3'>
+ Your user agent does not support the HTML5 Audio element.
+</audio>
+
+<script>
+function aud_play_pause() {
+  var myAudio = document.getElementById("myAudio");
+  if (myAudio.paused) {
+    myAudio.play();
+  } else {
+    myAudio.pause();
+  }
+}
+</script>
 </body>
 </html>

@@ -1,3 +1,20 @@
+window.onload = function(){
+    setContainerWidth();
+};
+
+$(window).resize(function(){
+   setContainerWidth();
+});
+
+function setContainerWidth()
+{
+    $('#boxes').css('width', 'auto'); //reset
+    var windowWidth = $(document).width();
+    var blockWidth = $('.pimg').outerWidth(true);
+    var maxBoxPerRow = Math.floor(windowWidth / blockWidth);
+    $('#boxes').width(maxBoxPerRow * blockWidth);
+}
+
 var pokeApp = angular.module('pokeApp', []);
 
 pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, pokeknow) {
@@ -14,6 +31,9 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
     });
 
     $scope.checkGuess = function(poke){
+
+
+
         if(angular.equals($scope.guess.toLowerCase(), poke.poke_name)){
 
             //nidoran f/m edge case
@@ -50,7 +70,7 @@ function showImage(pokeNum) {
     }
 }
 
-function revealAll(pokeknow){
+function revealAll(){
     for(i=0; i<152; i++){
         showImage(i);
     }
@@ -58,7 +78,7 @@ function revealAll(pokeknow){
 
 // Countdown Timer
 
-var timeInMinutes = 2;
+var timeInMinutes = 2  ;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
@@ -87,8 +107,11 @@ var secondsSpan = clock.querySelector('.seconds');
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
       if(t.total<=0){
         clearInterval(timeinterval);
-        alert("Time's up! Your score: " + numGuessed);
         document.getElementById('textbox').readOnly = true;
+        document.getElementById("clockdiv").innerHTML = "Time's up! Your score: " + numGuessed;
+
+        document.getElementById('textbox').placeholder = "Nice Hustle!";
+        
         revealAll();
       }
     }
