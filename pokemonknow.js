@@ -9,7 +9,7 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
             $scope.pokes.push(new Pokemon(data.pokemon_entries[x]));
         }
         //nidoran f/m edge case
-        $scope.pokes[29].poke_name="nidoran";
+        $scope.pokes[28].poke_name="nidoran";
         $scope.quantity = 151;
     });
 
