@@ -29,7 +29,12 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
             
             poke.visible = true;
            }
-    }}]);
+    }
+    
+    $scope.displayPoke = function(){
+        
+    }
+}]);
 
 $(document).ready(function(){
    for(var i = 0; i < 151; i++)
@@ -42,6 +47,12 @@ function showImage(pokeNum) {
     if ($("#boxes > " + str).attr('src') == "transparent.png") {
         numGuessed++;
         $("#boxes > " + str).attr('src', "sprites/" + pokeNum + ".png");
+    }
+}
+
+function revealAll(pokeknow){
+    for(i=0; i<152; i++){
+        showImage(i);
     }
 }
 
@@ -78,6 +89,7 @@ var secondsSpan = clock.querySelector('.seconds');
         clearInterval(timeinterval);
         alert("Time's up! Your score: " + numGuessed);
         document.getElementById('textbox').readOnly = true;
+        revealAll();
       }
     }
 
