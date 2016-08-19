@@ -1,3 +1,20 @@
+window.onload = function(){
+    setContainerWidth();
+};
+
+$(window).resize(function(){
+   setContainerWidth();
+});
+
+function setContainerWidth()
+{
+    $('#boxes').css('width', 'auto'); //reset
+    var windowWidth = $(document).width();
+    var blockWidth = $('.pimg').outerWidth(true);
+    var maxBoxPerRow = Math.floor(windowWidth / blockWidth);
+    $('#boxes').width(maxBoxPerRow * blockWidth);
+}
+
 var pokeApp = angular.module('pokeApp', []);
 
 pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, pokeknow) {
@@ -76,8 +93,8 @@ var secondsSpan = clock.querySelector('.seconds');
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
       if(t.total<=0){
         clearInterval(timeinterval);
-        alert("Time's up! Your score: " + numGuessed);
         document.getElementById('textbox').readOnly = true;
+        document.getElementById("clockdiv").innerHTML = "Time's up! Your score: " + numGuessed;
       }
     }
 
