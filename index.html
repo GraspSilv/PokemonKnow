@@ -32,5 +32,21 @@
     <script src="pokeknow.js"></script>
     <script src="pokemon.js"></script>
    
+<audio id="myAudio" autoplay="autoplay">
+ <source src="audio.mp3"
+         type='audio/mp3'>
+ Your user agent does not support the HTML5 Audio element.
+</audio>
+<button type="button" onclick="aud_play_pause()">Pause</button>
+<script>
+function aud_play_pause() {
+  var myAudio = document.getElementById("myAudio");
+  if (myAudio.paused) {
+    myAudio.play();
+  } else {
+    myAudio.pause();
+  }
+}
+</script>
 </body>
 </html>
