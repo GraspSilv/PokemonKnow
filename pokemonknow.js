@@ -64,7 +64,7 @@ function showImage(pokeNum) {
 
 // Countdown Timer
 
-var timeInMinutes = 2;
+var timeInMinutes = 2  ;
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInMinutes*60*1000);
 
@@ -95,6 +95,9 @@ var secondsSpan = clock.querySelector('.seconds');
         clearInterval(timeinterval);
         document.getElementById('textbox').readOnly = true;
         document.getElementById("clockdiv").innerHTML = "Time's up! Your score: " + numGuessed;
+
+        document.getElementById('textbox').placeholder = "Nice Hustle!";
+
       }
     }
 
