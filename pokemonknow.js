@@ -9,13 +9,15 @@ pokeApp.controller('GuessController', ['$scope', 'pokeknow', function($scope, po
             $scope.pokes.push(new Pokemon(data.pokemon_entries[x]));
         }
         //nidoran f/m edge case
+
         $scope.pokes[28].poke_name="nidoran";
         $scope.quantity = 151;
     });
 
     $scope.checkGuess = function(poke){
+
         if(angular.equals($scope.guess, poke.poke_name)){
-            
+        if(angular.equals($scope.guess.toLowerCase(), poke.poke_name)){
             //nidoran f/m edge case
             if(poke.poke_name === "nidoran"){
                 showImage(29);
